@@ -74,6 +74,9 @@ service slapd start
 turnkey-regen-ldap-certs $LDAP_DOMAIN
 /usr/lib/inithooks/bin/openldap.py --domain=$LDAP_DOMAIN --pass=$LDAP_PASS
 
+chown -R www-data:www-data $WEBROOT
+chown -R www-data:www-data $CONF
+
 service slapd stop
 
 # remove samba pkg (only required for samba schema)
